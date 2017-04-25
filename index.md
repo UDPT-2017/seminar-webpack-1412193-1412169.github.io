@@ -1,4 +1,20 @@
-# Hello world
+# SEMINAR WEBPACK (1412169-1412193)
+
+## Giới thiệu webpack
+  ### Wepback là gì?
+  ### Tại sao phải sử dụng webpack?
+## Cài đặt
+  
+## Sử dụng
+  ### Webpack khi không có file config
+  ### Webpack khi có file config
+  ### Watch mode
+  ### Tối ưu hóa kết quả đầu ra
+  ### Loader
+  ### Webpack dev server
+  ### Pluggin
+
+
 
 
 ### Markdown
@@ -9,6 +25,7 @@ Markdown is a lightweight and easy-to-use syntax for styling your writing. It in
 Syntax highlighted code block
 
 # Header 1
+      
 ## Header 2
 ### Header 3
 
