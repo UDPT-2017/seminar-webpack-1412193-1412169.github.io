@@ -1,8 +1,8 @@
 # 1) Giới thiệu webpack
-## Wepback là gì?
+## a)Wepback là gì?
 + Webpack là một module bundler để quản lí code front-end của bạn (bao gồm HTML, CSS, JS,..). Webpack đơn giản hóa các workflow 	 bằng việc xây dựng một cách nhanh chóng một đồ thị tham chiếu (dependency graph) trong ứng dụng của bạn và sắp xếp nó một các   	 chính xác.
 	
-**Tại sao phải sử dụng webpakck**
+## b)Tại sao phải sử dụng webpakck
 
 
 # 2) Cài đặt
@@ -18,7 +18,7 @@
 
   
 # 3) Sử dụng
-  **Webpack khi không có file config: **
+## Webpack khi không có file config:
   Tạo một folder có cấu trúc như sau:
 	
 _hello.js_
@@ -60,7 +60,7 @@ Sau đó, kiểm tra trong thư mục webpack-without-file-config, một file c�
 Sau đó mở trình duyệt của bạn lên và kiểm tra. Hai text box sẽ hiện lên lần lượt. 
 Đây là cách sử dụng webpack khi không sử dụng file webpack.config.js. Tuy nhiên chúng có một số bất tiện. Thứ nhất, mỗi lần có một sự thay đổi nào, dù là nhỏ nhất, bạn cũng phải chạy lại lệnh trên command-line. Thứ hai, việc này sẽ trở nên cực kì phức tạp khi bạn tích hợp các module khác của JS hay CSS,… do đó chúng ta cần một cách dùng khác giúp giải quyết vấn đề này, đó là dùng file webpack.config.js để giúp ta chạy các lệnh đơn giản hơn. 
 
-  ## Webpack khi có file config
+##  Webpack khi có file config:
   Tạo một folder có cấu trúc như sau (có thêm file webpack.config.js và file style.css)
   Tác dụng của file webpack.config.js:
 Như đã nói ở trên, file webpack.config.js giúp chúng ta dễ dàng quản lí các module, pluggin,… mà không phải gõ lại những lệnh quá dài dòng trên command-line, đồng thời có một số chế độ giúp tự compile và cập nhật lại các file khi có thay đổi.
@@ -77,7 +77,7 @@ module.exports = {
 Vì bạn cài đặt webpack bằng lệnh trên command-line nên câu lệnh ở đây để thực hiện khai báo các cấu hình bên trong là module.exports. Trong ví dụ trên, file entry là main.js và sẽ cho ra một file output là bundle.js ở cùng thư mục. Bạn có thể tùy chỉnh thư mục lưu trữ bằng các tùy chọn khác như tùy chỉnh output.path và rất nhiều tùy chọn khác ở trang này: https://webpack.github.io/docs/configuration.html
 Tiếp đến chúng ta thực hiện lệnh trên command-line, thay vì liệt kê các file như câu lệnh phía trên, bây giờ chỉ cần gõ webpack thì chúng ta sẽ có kết quả tương  tự. 
 
-  ## Watch mode
+## Watch mode
   ## Tối ưu hóa kết quả đầu ra
   ## Loader
   ## Webpack dev server
