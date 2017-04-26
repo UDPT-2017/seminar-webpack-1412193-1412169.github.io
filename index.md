@@ -1,6 +1,6 @@
 # 1) Giới thiệu webpack
-**Wepback là gì?**
-    + Webpack là một module bundler để quản lí code front-end của bạn (bao gồm HTML, CSS, JS,..). Webpack đơn giản hóa các workflow 	       bằng việc xây dựng một cách nhanh chóng một đồ thị tham chiếu (dependency graph) trong ứng dụng của bạn và sắp xếp nó một các   	       chính xác.
+## Wepback là gì?
++ Webpack là một module bundler để quản lí code front-end của bạn (bao gồm HTML, CSS, JS,..). Webpack đơn giản hóa các workflow 	 bằng việc xây dựng một cách nhanh chóng một đồ thị tham chiếu (dependency graph) trong ứng dụng của bạn và sắp xếp nó một các   	 chính xác.
 	
 **Tại sao phải sử dụng webpakck**
 
@@ -14,19 +14,69 @@
   + webpack:
     -	Lúc này, khi đã cài đặt node và npm, bạn đã có thể cài đặt webpack trên command-line của mình bằng lệnh: npm install –g webpack.         Cờ lệnh –g giúp cho webpack có thể chạy global bất kì đâu trên máy của bạn. Thử lệnh webpack trên command-line. Nếu hệ thống             trả về tên phiên bản thì bạn đã cài đặt thành công.
   + package.json:
-    -	Đảm bảo máy bạn có file package.json để tiện cho việc cấu hình cho webpack sau này khi chúng ta cài đặt thêm các loader, pluggin         và những tiện ích khác. Phần này sẽ được giới thiệu bên dưới. Nếu máy bạn không có file package.json bạn có thể mở command-line và       gõ lệnh: npm init. Cứ tuân theo hướng dẫn trên command-line và tạo một file package.json.
+    -	Đảm bảo máy bạn có file package.json để tiện cho việc cấu hình cho webpack sau này khi chúng ta cài đặt thêm các loader, pluggin         và những tiện ích khác. Phần này sẽ được giới thiệu bên dưới. Nếu máy bạn không có file package.json bạn có thể mở command-line 	 và gõ lệnh: npm init. Cứ tuân theo hướng dẫn trên command-line và tạo một file package.json.
 
   
 # 3) Sử dụng
   **Webpack khi không có file config: **
-  	Tạo một folder có cấu trúc như sau:
+  Tạo một folder có cấu trúc như sau:
 	
-	_hello.js_
-	Thêm dòng lệnh sau vào file hello.js của bạn: 
-	`setTimeout(()=> alert("Hello there from HELLO.js"),3000);`
-	Dòng lệnh trên có tác dụng hiện một text box có dòng chữ “Hello there from HELLO.js” trên trình duyệt sau của bạn sau 3 giây.
+_hello.js_
+Thêm dòng lệnh sau vào file hello.js của bạn: 
+`setTimeout(()=> alert("Hello there from HELLO.js"),3000);`
+Dòng lệnh trên có tác dụng hiện một text box có dòng chữ “Hello there from HELLO.js” trên trình duyệt sau của bạn sau 3 giây.
+
+_main.js_
+Thêm 2 dòng lệnh sau vào file main.js của bạn:
+`var sub = require('./hello.js');
+setTimeout(()=> alert("Hello there from MAIN.js"),300);`
+Dòng đầu tiên sẽ gọi đến file hello.js và dòng thứ hai sẽ có tác dụng hiện một text box có dòng chữ “Hello there from MAIN.js” trên trình duyệt của bạn sau 0.3 giây. 
+Về cơ bản, bạn không thể gọi một file .js này từ một file .js khác, tuy nhiên webpack cho phép bạn làm điều này. Điều này giúp bạn có thể tùy biến gọi đến nhiều file .js khác phục vụ nhu cầu chức năng mà không phải là gom tất cả các file .js kể cả các file .js không cần thiết vào. Điều này cũng giúp bạn dễ dàng quản lí các file .js nếu bạn muốn gom chúng lại. 
+Tuy nhiên, nếu không thực hiện require thì vẫn có cách khác để bạn gộp các file .js này thành một. Cách này sẽ được hướng dẫn bên dưới.
+
+_index.html_
+Chúng ta cần một view để xem những gì chúng ta làm bên dưới. Bạn thêm vào file index.html của mình các dòng lệnh sau:
+`<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Webpack</title>
+    <script type="text/javascript" src="./bundle.js">
+    </script>
+</head>
+<body>
+    <h1>Hi, my name is Hien</h1>
+</body>
+</html>`
+Ở dòng thứ 6 của đoạn code trên, trong thẻ <script> bạn thấy có một lời gọi đến file bundle.js. Vậy file này ở đâu ra? Mở command-line của bạn lên (bạn cần nhớ là đứng ở thư mục gốc chứa các file này) và gõ lệnh: 
+webpack main.js bundle.js
+
+Quay lại trường hợp bạn không thực hiện require file hello.js trong file main.js thì bạn có thể thực hiện theo lệnh sau, kết quả sẽ không thay đổi.
+webpack hello.js main.js bundle.js
+Nếu bạn có nhiều hơn một file hello.js, ví dụ như hello1.js, hello2.js, hello3.js,… bạn có thể require chúng trong file main.js rồi thực hiện chạy lệnh command-line thứ nhất hoặc liệt kê chúng như lệnh command-line thứ hai.
+Sau khi thực hiện lệnh trên command-line. Nó sẽ trả về cho bạn một số thứ trông gần giống như thế này.
+
+Sau đó, kiểm tra trong thư mục webpack-without-file-config, một file có tên bundle.js sẽ được tạo ra, mở file này lên kiểm tra, bạn sẽ thấy có một số đoạn code khác bao quanh code ban đầu của bạn và bạn sẽ có cảm giác giống như hai file main.js và hello.js được nhập lại thành một file.
+Sau đó mở trình duyệt của bạn lên và kiểm tra. Hai text box sẽ hiện lên lần lượt. 
+Đây là cách sử dụng webpack khi không sử dụng file webpack.config.js. Tuy nhiên chúng có một số bất tiện. Thứ nhất, mỗi lần có một sự thay đổi nào, dù là nhỏ nhất, bạn cũng phải chạy lại lệnh trên command-line. Thứ hai, việc này sẽ trở nên cực kì phức tạp khi bạn tích hợp các module khác của JS hay CSS,… do đó chúng ta cần một cách dùng khác giúp giải quyết vấn đề này, đó là dùng file webpack.config.js để giúp ta chạy các lệnh đơn giản hơn. 
 
   ## Webpack khi có file config
+  Tạo một folder có cấu trúc như sau (có thêm file webpack.config.js và file style.css)
+  Tác dụng của file webpack.config.js:
+Như đã nói ở trên, file webpack.config.js giúp chúng ta dễ dàng quản lí các module, pluggin,… mà không phải gõ lại những lệnh quá dài dòng trên command-line, đồng thời có một số chế độ giúp tự compile và cập nhật lại các file khi có thay đổi.
+Cấu trúc của một file webpack.config.js:
+Trước khi tạo file cấu hình, bạn cần hiểu rằng, tùy chọn dòng lệnh của wepack lấy theo hai tham số:
++ entry: được hiểu là đầu vào.
++ output: được hiểu là đầu ra.
+module.exports = {
+    entry: './main.js',
+    output: {
+        filename: './bundle.js'
+    }
+  }
+Vì bạn cài đặt webpack bằng lệnh trên command-line nên câu lệnh ở đây để thực hiện khai báo các cấu hình bên trong là module.exports. Trong ví dụ trên, file entry là main.js và sẽ cho ra một file output là bundle.js ở cùng thư mục. Bạn có thể tùy chỉnh thư mục lưu trữ bằng các tùy chọn khác như tùy chỉnh output.path và rất nhiều tùy chọn khác ở trang này: https://webpack.github.io/docs/configuration.html
+Tiếp đến chúng ta thực hiện lệnh trên command-line, thay vì liệt kê các file như câu lệnh phía trên, bây giờ chỉ cần gõ webpack thì chúng ta sẽ có kết quả tương  tự. 
+
   ## Watch mode
   ## Tối ưu hóa kết quả đầu ra
   ## Loader
