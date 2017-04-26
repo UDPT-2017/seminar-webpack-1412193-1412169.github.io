@@ -23,16 +23,16 @@
 	
   + _hello.js_
      - Thêm dòng lệnh sau vào file hello.js của bạn: 
-       `setTimeout(()=> alert("Hello there from HELLO.js"),3000);`
-    -  Dòng lệnh trên có tác dụng hiện một text box có dòng chữ “Hello there from HELLO.js” trên trình duyệt sau của bạn sau 3 giây.
+     - `setTimeout(()=> alert("Hello there from HELLO.js"),3000);`
+     -  Dòng lệnh trên có tác dụng hiện một text box có dòng chữ “Hello there from HELLO.js” trên trình duyệt sau của bạn sau 3 giây.
 
   + _main.js_
-	Thêm 2 dòng lệnh sau vào file main.js của bạn:
+    - Thêm 2 dòng lệnh sau vào file main.js của bạn:
 	`var sub = require('./hello.js');
 	setTimeout(()=> alert("Hello there from MAIN.js"),300);`
-	Dòng đầu tiên sẽ gọi đến file hello.js và dòng thứ hai sẽ có tác dụng hiện một text box có dòng chữ “Hello there from MAIN.js” 		trên trình duyệt của bạn sau 0.3 giây. 
-	Về cơ bản, bạn không thể gọi một file .js này từ một file .js khác, tuy nhiên webpack cho phép bạn làm điều này. Điều này giúp 		bạn có thể tùy biến gọi đến nhiều file .js khác phục vụ nhu cầu chức năng mà không phải là gom tất cả các file .js kể cả các 		file .js không cần thiết vào. Điều này cũng giúp bạn dễ dàng quản lí các file .js nếu bạn muốn gom chúng lại. 
-	Tuy nhiên, nếu không thực hiện require thì vẫn có cách khác để bạn gộp các file .js này thành một. Cách này sẽ được hướng dẫn 		bên dưới.
+    - Dòng đầu tiên sẽ gọi đến file hello.js và dòng thứ hai sẽ có tác dụng hiện một text box có dòng chữ “Hello there from MAIN.js” 	  	trên trình duyệt của bạn sau 0.3 giây. 
+    - Về cơ bản, bạn không thể gọi một file .js này từ một file .js khác, tuy nhiên webpack cho phép bạn làm điều này. Điều này giúp 	       bạn có thể tùy biến gọi đến nhiều file .js khác phục vụ nhu cầu chức năng mà không phải là gom tất cả các file .js kể cả các 	       file .js không cần thiết vào. Điều này cũng giúp bạn dễ dàng quản lí các file .js nếu bạn muốn gom chúng lại. 
+    - Tuy nhiên, nếu không thực hiện require thì vẫn có cách khác để bạn gộp các file .js này thành một. Cách này sẽ được hướng dẫn 	 	bên dưới.
 
   + _index.html_
 Chúng ta cần một view để xem những gì chúng ta làm bên dưới. Bạn thêm vào file index.html của mình các dòng lệnh sau:
