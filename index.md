@@ -1,18 +1,25 @@
-# SEMINAR WEBPACK (1412169-1412193)
+# Giới thiệu webpack
+  ## Wepback là gì?
+  Webpack là một module bundler để quản lí code front-end của bạn (bao gồm HTML, CSS, JS,..). Webpack đơn giản hóa các workflow bằng      việc xây dựng một cách nhanh chóng một đồ thị tham chiếu (dependency graph) trong ứng dụng của bạn và sắp xếp nó một cách chính xác. 
+  ## Tại sao phải sử dụng webpack?
+  Có rất nhiều lợi ích khi bạn sử dụng webpack:
+-	Webpack giúp  bạn dễ dàng chia tách code của bạn thành nhiều phần cũng như là gộp chúng lại, điều này giúp bạn dễ quản lí  chúng hơn.
+-	Khả năng tích hợp 3rd-party library như module, giúp bạn load những thứ bạn muốn khi bạn thật sự cần chúng.
+-	Giúp biên dịch các loại file khác nhau thành file .js.
+-	Có webpack-dev-server để chạy các gói bundle ngay lập tức.
+-	Phù hợp với các dự án lớn về web.
+Bên cạnh những lợi ích trên, thì còn nhiều lợi ích khác mà khi sử dụng bạn sẽ cảm nhận rõ hơn về chúng. 
 
-## Giới thiệu webpack
-  ### Wepback là gì?
-  ### Tại sao phải sử dụng webpack?
-## Cài đặt
+# Cài đặt
   
-## Sử dụng
-  ### Webpack khi không có file config
-  ### Webpack khi có file config
-  ### Watch mode
-  ### Tối ưu hóa kết quả đầu ra
-  ### Loader
-  ### Webpack dev server
-  ### Pluggin
+# Sử dụng
+  ## Webpack khi không có file config
+  ## Webpack khi có file config
+  ## Watch mode
+  ## Tối ưu hóa kết quả đầu ra
+  ## Loader
+  ## Webpack dev server
+  ## Pluggin
 
 
 
