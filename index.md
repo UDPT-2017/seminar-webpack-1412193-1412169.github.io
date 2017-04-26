@@ -35,8 +35,8 @@
     - Tuy nhiên, nếu không thực hiện require thì vẫn có cách khác để bạn gộp các file .js này thành một. Cách này sẽ được hướng dẫn 	 	bên dưới.
 
   + _index.html_
-Chúng ta cần một view để xem những gì chúng ta làm bên dưới. Bạn thêm vào file index.html của mình các dòng lệnh sau:
-<!DOCTYPE html>
+    - Chúng ta cần một view để xem những gì chúng ta làm bên dưới. Bạn thêm vào file index.html của mình các dòng lệnh sau:
+`<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -45,16 +45,16 @@ Chúng ta cần một view để xem những gì chúng ta làm bên dưới. B�
     </script>
 </head>
 <body>
-    <h1>Hi, my name is Hien</h1>
+    `<h1>Hi, my name is Hien</h1>`
 </body>
-</html>
-Ở dòng thứ 6 của đoạn code trên, trong thẻ `<script>` bạn thấy có một lời gọi đến file bundle.js. Vậy file này ở đâu ra? Mở command-line của bạn lên (bạn cần nhớ là đứng ở thư mục gốc chứa các file này) và gõ lệnh: 
-webpack main.js bundle.js
+</html>`
+    - Ở dòng thứ 6 của đoạn code trên, trong thẻ `<script>` bạn thấy có một lời gọi đến file bundle.js. Vậy file này ở đâu ra? Mở             command-line của bạn lên (bạn cần nhớ là đứng ở thư mục gốc chứa các file này) và gõ lệnh: 
+     webpack main.js bundle.js
 
-Quay lại trường hợp bạn không thực hiện require file hello.js trong file main.js thì bạn có thể thực hiện theo lệnh sau, kết quả sẽ không thay đổi.
+  - Quay lại trường hợp bạn không thực hiện require file hello.js trong file main.js thì bạn có thể thực hiện theo lệnh sau, kết quả sẽ     không thay đổi.
 `webpack hello.js main.js bundle.js`
-Nếu bạn có nhiều hơn một file hello.js, ví dụ như hello1.js, hello2.js, hello3.js,… bạn có thể require chúng trong file main.js rồi thực hiện chạy lệnh command-line thứ nhất hoặc liệt kê chúng như lệnh command-line thứ hai.
-Sau khi thực hiện lệnh trên command-line. Nó sẽ trả về cho bạn một số thứ trông gần giống như thế này.
+  - Nếu bạn có nhiều hơn một file hello.js, ví dụ như hello1.js, hello2.js, hello3.js,… bạn có thể require chúng trong file main.js rồi   thực hiện chạy lệnh command-line thứ nhất hoặc liệt kê chúng như lệnh command-line thứ hai.
+  - Sau khi thực hiện lệnh trên command-line. Nó sẽ trả về cho bạn một số thứ trông gần giống như thế này.
 
 Sau đó, kiểm tra trong thư mục webpack-without-file-config, một file có tên bundle.js sẽ được tạo ra, mở file này lên kiểm tra, bạn sẽ thấy có một số đoạn code khác bao quanh code ban đầu của bạn và bạn sẽ có cảm giác giống như hai file main.js và hello.js được nhập lại thành một file.
 
@@ -63,7 +63,7 @@ Sau đó mở trình duyệt của bạn lên và kiểm tra. Hai text box sẽ 
 Đây là cách sử dụng webpack khi không sử dụng file webpack.config.js. Tuy nhiên chúng có một số bất tiện. Thứ nhất, mỗi lần có một sự thay đổi nào, dù là nhỏ nhất, bạn cũng phải chạy lại lệnh trên command-line. Thứ hai, việc này sẽ trở nên cực kì phức tạp khi bạn tích hợp các module khác của JS hay CSS,… do đó chúng ta cần một cách dùng khác giúp giải quyết vấn đề này, đó là dùng file webpack.config.js để giúp ta chạy các lệnh đơn giản hơn. 
 
 ##  Webpack khi có file config:
-Tạo một folder có cấu trúc như sau (có thêm file webpack.config.js và file style.css)
+   - Tạo một folder có cấu trúc như sau (có thêm file webpack.config.js và file style.css)
 **Tác dụng của file webpack.config.js:**
 Như đã nói ở trên, file webpack.config.js giúp chúng ta dễ dàng quản lí các module, pluggin,… mà không phải gõ lại những lệnh quá dài dòng trên command-line, đồng thời có một số chế độ giúp tự compile và cập nhật lại các file khi có thay đổi.
 **Cấu trúc của một file webpack.config.js:**
