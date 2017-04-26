@@ -3,11 +3,6 @@
     + Webpack là một module bundler để quản lí code front-end của bạn (bao gồm HTML, CSS, JS,..). Webpack đơn giản hóa các workflow 	       bằng việc xây dựng một cách nhanh chóng một đồ thị tham chiếu (dependency graph) trong ứng dụng của bạn và sắp xếp nó một các   	       chính xác.
 	
 **Tại sao phải sử dụng webpakck**
-    + Có rất nhiều lợi ích khi sử dụng webpack:
-    -Webpack giúp  bạn dễ dàng chia tách code của bạn thành nhiều phần cũng như là gộp chúng lại, điều này giúp bạn dễ quản 			lí chúng hơn.
-    -Khả năng tích hợp 3rd-party library như module, giúp bạn load những thứ bạn muốn khi bạn thật sự cần chúng.
-    -Giúp biên dịch các loại file khác nhau thành file .js.
-    -Có webpack-dev-server để chạy các gói bundle ngay lập tức.
 
 
 # 2) Cài đặt
@@ -26,9 +21,9 @@
   **Webpack khi không có file config: **
   	Tạo một folder có cấu trúc như sau:
 	
-	hello.js 
+	_hello.js_
 	Thêm dòng lệnh sau vào file hello.js của bạn: 
-	setTimeout(()=> alert("Hello there from HELLO.js"),3000);
+	`setTimeout(()=> alert("Hello there from HELLO.js"),3000);`
 	Dòng lệnh trên có tác dụng hiện một text box có dòng chữ “Hello there from HELLO.js” trên trình duyệt sau của bạn sau 3 giây.
 
   ## Webpack khi có file config
