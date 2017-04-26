@@ -36,7 +36,7 @@ Tuy nhiên, nếu không thực hiện require thì vẫn có cách khác để 
 
 _index.html_
 Chúng ta cần một view để xem những gì chúng ta làm bên dưới. Bạn thêm vào file index.html của mình các dòng lệnh sau:
-`<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -47,7 +47,7 @@ Chúng ta cần một view để xem những gì chúng ta làm bên dưới. B�
 <body>
     <h1>Hi, my name is Hien</h1>
 </body>
-</html>`
+</html>
 Ở dòng thứ 6 của đoạn code trên, trong thẻ `<script>` bạn thấy có một lời gọi đến file bundle.js. Vậy file này ở đâu ra? Mở command-line của bạn lên (bạn cần nhớ là đứng ở thư mục gốc chứa các file này) và gõ lệnh: 
 webpack main.js bundle.js
 
