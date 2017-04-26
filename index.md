@@ -4,8 +4,8 @@
     
 **Tại sao phải sử dụng webpack?**
     Có rất nhiều lợi ích khi bạn sử dụng webpack:
-      -	Webpack giúp  bạn dễ dàng chia tách code của bạn thành nhiều phần cũng như là gộp chúng lại, điều này giúp bạn dễ quản lí  chúng         hơn.
-      -	Khả năng tích hợp 3rd-party library như module, giúp bạn load những thứ bạn muốn khi bạn thật sự cần chúng.
+        - Webpack giúp  bạn dễ dàng chia tách code của bạn thành nhiều phần cũng như là gộp chúng lại, điều này giúp bạn dễ quản lí               chúng hơn.
+        - Khả năng tích hợp 3rd-party library như module, giúp bạn load những thứ bạn muốn khi bạn thật sự cần chúng.
       -	Giúp biên dịch các loại file khác nhau thành file .js.
       -	Có webpack-dev-server để chạy các gói bundle ngay lập tức.
       -	Phù hợp với các dự án lớn về web.
