@@ -48,11 +48,11 @@ Chúng ta cần một view để xem những gì chúng ta làm bên dưới. B�
     <h1>Hi, my name is Hien</h1>
 </body>
 </html>`
-Ở dòng thứ 6 của đoạn code trên, trong thẻ <script> bạn thấy có một lời gọi đến file bundle.js. Vậy file này ở đâu ra? Mở command-line của bạn lên (bạn cần nhớ là đứng ở thư mục gốc chứa các file này) và gõ lệnh: 
+Ở dòng thứ 6 của đoạn code trên, trong thẻ `<script>` bạn thấy có một lời gọi đến file bundle.js. Vậy file này ở đâu ra? Mở command-line của bạn lên (bạn cần nhớ là đứng ở thư mục gốc chứa các file này) và gõ lệnh: 
 webpack main.js bundle.js
 
 Quay lại trường hợp bạn không thực hiện require file hello.js trong file main.js thì bạn có thể thực hiện theo lệnh sau, kết quả sẽ không thay đổi.
-webpack hello.js main.js bundle.js
+`webpack hello.js main.js bundle.js`
 Nếu bạn có nhiều hơn một file hello.js, ví dụ như hello1.js, hello2.js, hello3.js,… bạn có thể require chúng trong file main.js rồi thực hiện chạy lệnh command-line thứ nhất hoặc liệt kê chúng như lệnh command-line thứ hai.
 Sau khi thực hiện lệnh trên command-line. Nó sẽ trả về cho bạn một số thứ trông gần giống như thế này.
 
@@ -176,7 +176,7 @@ Hãy thêm vào file style.css của bạn dòng lệnh sau:
 `h1 {	
     color: green;
 }`
-Dòng lệnh này giúp dòng chữ trong tag <h1> chuyển sang màu xanh lá. 
+Dòng lệnh này giúp dòng chữ trong tag `<h1>` chuyển sang màu xanh lá. 
 
 _main.js_
 Thêm vào file main.js của bạn dòng lệnh require file style.css
