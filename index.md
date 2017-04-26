@@ -22,9 +22,9 @@
   Tạo một folder có cấu trúc như sau:
 	
   + _hello.js_
-	Thêm dòng lệnh sau vào file hello.js của bạn: 
-	`setTimeout(()=> alert("Hello there from HELLO.js"),3000);`
-	Dòng lệnh trên có tác dụng hiện một text box có dòng chữ “Hello there from HELLO.js” trên trình duyệt sau của bạn sau 3 giây.
+     - Thêm dòng lệnh sau vào file hello.js của bạn: 
+       `setTimeout(()=> alert("Hello there from HELLO.js"),3000);`
+    -  Dòng lệnh trên có tác dụng hiện một text box có dòng chữ “Hello there from HELLO.js” trên trình duyệt sau của bạn sau 3 giây.
 
   + _main.js_
 	Thêm 2 dòng lệnh sau vào file main.js của bạn:
