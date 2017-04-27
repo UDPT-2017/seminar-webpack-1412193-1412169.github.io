@@ -30,13 +30,17 @@ Bên cạnh những lợi ích trên, thì còn nhiều lợi ích khác mà khi
   --- webpack-without-file-config (hello.js, main.js, index.js)
   + _hello.js_
      - Thêm dòng lệnh sau vào file hello.js của bạn: 
-    `setTimeout(()=> alert("Hello there from HELLO.js"),3000);`
+    ```
+    setTimeout(()=> alert("Hello there from HELLO.js"),3000);
+    ```
      -  Dòng lệnh trên có tác dụng hiện một text box có dòng chữ “Hello there from HELLO.js” trên trình duyệt sau của bạn sau 3 giây.
 
   + _main.js_
     - Thêm 2 dòng lệnh sau vào file main.js của bạn:
-    `var sub = require('./hello.js');`
-    `setTimeout(()=> alert("Hello there from MAIN.js"),300);`
+    ```
+    var sub = require('./hello.js');
+    setTimeout(()=> alert("Hello there from MAIN.js"),300);
+    ```
     - Dòng đầu tiên sẽ gọi đến file hello.js và dòng thứ hai sẽ có tác dụng hiện một text box có dòng chữ “Hello there from MAIN.js” 	  	trên trình duyệt của bạn sau 0.3 giây. 
     - Về cơ bản, bạn không thể gọi một file .js này từ một file .js khác, tuy nhiên webpack cho phép bạn làm điều này. Điều này giúp 	       bạn có thể tùy biến gọi đến nhiều file .js khác phục vụ nhu cầu chức năng mà không phải là gom tất cả các file .js kể cả các 	       file .js không cần thiết vào. Điều này cũng giúp bạn dễ dàng quản lí các file .js nếu bạn muốn gom chúng lại. 
     - Tuy nhiên, nếu không thực hiện require thì vẫn có cách khác để bạn gộp các file .js này thành một. Cách này sẽ được hướng dẫn 	 	bên dưới.
@@ -63,12 +67,14 @@ Sau đó mở trình duyệt của bạn lên và kiểm tra. Hai text box sẽ 
 Trước khi tạo file cấu hình, bạn cần hiểu rằng, tùy chọn dòng lệnh của wepack lấy theo hai tham số:
 	+ `entry` được hiểu là đầu vào.
 	+ `output`: được hiểu là đầu ra.
-`module.exports = {
+```
+module.exports = {
     entry: './main.js',
     output: {
         filename: './bundle.js'
     }
-  }`
+  }
+  ```
 Vì bạn cài đặt webpack bằng lệnh trên command-line nên câu lệnh ở đây để thực hiện khai báo các cấu hình bên trong là `module.exports`. Trong ví dụ trên, file entry là `main.js` và sẽ cho ra một file output là `bundle.js` ở cùng thư mục. Bạn có thể tùy chỉnh thư mục lưu trữ bằng các tùy chọn khác như tùy chỉnh `output.path` và rất nhiều tùy chọn khác ở trang này: https://webpack.github.io/docs/configuration.html
 Tiếp đến chúng ta thực hiện lệnh trên command-line, thay vì liệt kê các file như câu lệnh phía trên, bây giờ chỉ cần gõ `webpack` thì chúng ta sẽ có kết quả tương  tự. 
 
@@ -76,13 +82,15 @@ Tiếp đến chúng ta thực hiện lệnh trên command-line, thay vì liệt
 Để tiện hơn, webpack cung cấp cho chúng ta một chế độ, giúp tự động compile lại khi chúng ta thực hiện các thay  đổi. Có 2 cách để bạn làm điều này:
 Cách 1: chạy lệnh `webpack –watch` hoặc lệnh `webpack –w` trên command-line, bạn chạy lênh này càng sớm càng tốt, bạn sẽ đỡ tốn công gõ đi gõ lại lệnh webpack nhiều lần.
 Cách 2: cấu hình trong file webpack.config.js, bật `watch` lên thành `true`.
-`module.exports = {
+```
+module.exports = {
     entry: './main.js',
     output: {
         filename: './bundle.js'
     },
     watch: true,
-  }`
+  }
+  ```
 Bây giờ, bạn chỉ cần gõ lệnh `webpack` một lần duy nhất, cho tới khi bạn nhấn `Ctr+C` để thoát thì webpack sẽ tự compile mỗi lần bạn thực hiện thay đổi trên các file liên quan.
 
 ## Tối ưu hóa kết quả đầu ra
@@ -103,7 +111,8 @@ Lưu ý: các loader được thực thi theo thứ  tự trừ phải sáng tr�
 Babel là một trình biên dịch code Javascript. Về cơ bản bạn có thể dùng webpack và babel-loader để giúp chuyển code ES2015 thành ES5. Để cài đặt được babel-loader, bạn cần cài babel-core, sau đó là cài babel-preset-es2015 (preset cho toàn bộ pluggin của ES2015) để nói cho webpack biết, những preset nào sẽ được sử dụng. 
 - Thực hiện cấu hình trong file `webpack.config.js`
 
-`module.exports = {
+```
+module.exports = {
     entry: './main.js',
     output: {
         filename: './bundle.js'
@@ -122,7 +131,8 @@ Babel là một trình biên dịch code Javascript. Về cơ bản bạn có th
             },
         ],
       }
-}`
+}
+```
 Giải thích đoạn code trong file webpack.config.js:
 `test`: một đoạn regular expression được viết để kiểm tra loại file nào được chạy qua loader này. Trong trường hợp này, nó cho phép tất cả các file có đuôi .js6 chạy qua. 
 `exclude`: cho biết file nào nên được bỏ qua. Trong trường hợp này, loader sẽ bỏ qua các file js6 nằm trong thư mục node_modules.
@@ -134,7 +144,8 @@ b)	Loading CSS
 - Cài đặt: `npm install –save-dev css-loader style-loader`
 Để load được file CSS, webpack cần 2 loader:  css-loader và style-loader, css-loader giúp load file CSS và style-loader giúp đưa các định dạng CSS vào trình duyệt. 
 - Cấu hình trong file `webpack.config.js`
-`module.exports = {
+```
+module.exports = {
     entry: './main.js',
     output: {
         filename: './bundle.js'
@@ -161,22 +172,27 @@ b)	Loading CSS
             }
         ],
     }
-};`
+};
+```
 
 Như lúc nãy đã đề cập, loader sẽ thực thi theo thứ tự từ phải sang trái. Trong trường hợp này, css-loader sẽ thực hiện trước style-loader.
 
 _style.css_
 - Hãy thêm vào file style.css của bạn dòng lệnh sau:
-`h1 {	
+```
+h1 {	
     color: green;
-}`
+}
+```
 Dòng lệnh này giúp dòng chữ trong tag `<h1>` chuyển sang màu xanh lá. 
 
 _main.js_
 Thêm vào file main.js của bạn dòng lệnh require file style.css
-`var sub = require('./hello.js');
+```
+var sub = require('./hello.js');
 var sub = require('./style.css');
-setTimeout(() => alert(`Hello there from MAIN`), 300);`
+setTimeout(() => alert(`Hello there from MAIN`), 300);
+```
 Sau đó chuyển sang command-line và gõ lệnh webpack, mở trình duyệt và theo dõi sự thay đổi.
 
 ## Webpack dev server
@@ -188,9 +204,11 @@ Mở command-line lên và chạy lệnh `webpack-dev-server`. Sau đó đi đ�
 
 _style.css_
 Vào file style.css của bạn đổi như sau:
-`h1 {
+```
+h1 {
     color: red;
-}`
+}
+```
 Giờ thì xem trên trình duyệt của bạn, dòng chữ sẽ chuyển sang màu đỏ.
 
 ## Pluggin
