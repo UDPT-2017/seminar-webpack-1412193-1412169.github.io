@@ -62,11 +62,11 @@ Bên cạnh những lợi ích trên, thì còn nhiều lợi ích khác mà khi
 </body>
 </html>
 ```
-    - Ở dòng thứ 6 của đoạn code trên, trong thẻ `<script>` bạn thấy có một lời gọi đến file `bundle.js`. Vậy file này ở đâu ra? Mở             command-line của bạn lên (bạn cần nhớ là đứng ở thư mục gốc chứa các file này) và gõ lệnh: 
+   - Ở dòng thứ 6 của đoạn code trên, trong thẻ `<script>` bạn thấy có một lời gọi đến file `bundle.js`. Vậy file này ở đâu ra? Mở             command-line của bạn lên (bạn cần nhớ là đứng ở thư mục gốc chứa các file này) và gõ lệnh: 
      `webpack main.js bundle.js`
-    - Quay lại trường hợp bạn không thực hiện require file `hello.js` trong file `main.js` thì bạn có thể thực hiện theo lệnh `webpack 	       hello.js main.js bundle.js`, kết quả sẽ không thay đổi.
-    - Nếu bạn có nhiều hơn một file `hello.js`, ví dụ như `hello1.js`, `hello2.js`, `hello3.js`,… bạn có thể require chúng trong file         `main.js`rồi thực hiện chạy lệnh command-line thứ nhất hoặc liệt kê chúng như lệnh command-line thứ hai.
-    - Sau khi thực hiện lệnh trên command-line. Nó sẽ trả về cho bạn một số thứ trông gần giống như thế này.
+   - Quay lại trường hợp bạn không thực hiện require file `hello.js` trong file `main.js` thì bạn có thể thực hiện theo lệnh `webpack 	       hello.js main.js bundle.js`, kết quả sẽ không thay đổi.
+   - Nếu bạn có nhiều hơn một file `hello.js`, ví dụ như `hello1.js`, `hello2.js`, `hello3.js`,… bạn có thể require chúng trong file         `main.js`rồi thực hiện chạy lệnh command-line thứ nhất hoặc liệt kê chúng như lệnh command-line thứ hai.
+   - Sau khi thực hiện lệnh trên command-line. Nó sẽ trả về cho bạn một số thứ trông gần giống như thế này.
     
 
 Sau đó, kiểm tra trong thư mục `webpack-without-file-config`, một file có tên `bundle.js` sẽ được tạo ra, mở file này lên kiểm tra, bạn sẽ thấy có một số đoạn code khác bao quanh code ban đầu của bạn và bạn sẽ có cảm giác giống như hai file `main.js` và `hello.js` được nhập lại thành một file.
