@@ -84,7 +84,7 @@ Sau đó mở trình duyệt của bạn lên và kiểm tra. Hai text box sẽ 
 **Tác dụng của file webpack.config.js:** 
 Như đã nói ở trên, file `webpack.config.js` giúp chúng ta dễ dàng quản lí các module, pluggin,… mà không phải gõ lại những lệnh quá      dài dòng trên command-line, đồng thời có một số chế độ giúp tự compile và cập nhật lại các file khi có thay đổi.
 
-** Cấu trúc của một file webpack.config.js:**
+**Cấu trúc của một file webpack.config.js:**
 Trước khi tạo file cấu hình, bạn cần hiểu rằng, tùy chọn dòng lệnh của wepack lấy theo hai tham số:
 	+ `entry` được hiểu là đầu vào.
 	+ `output`: được hiểu là đầu ra.
@@ -120,7 +120,7 @@ Bây giờ, bạn chỉ cần gõ lệnh `webpack` một lần duy nhất, cho t
 Webpack cung cấp một chế độ giúp tối ưu hóa code đầu ra của bạn. Nó sẽ xóa bỏ các khoảng trắng, dấu xuống dòng, các lệnh comment trên code,… để giúp file đầu ra nhẹ hơn.
 Bạn có thể thực hiện bằng lệnh `webpack –p` trên command-line.
 
-## Loader
+## e)Loader
 Đây được xem là phần rất quan trọng. 
 
 Vì webpack chỉ hiểu các file .js nên để có thể làm việc được với các file như .html hay .css chúng ta cần phải cài một số loader. Các loader này sẽ dạy cho webpack cách làm việc với các file không phải là file .js. 
@@ -130,9 +130,11 @@ Bản thân webpack không có sẵn các loader nhằm giúp cho webpack trở 
 Quá trình tích hợp một loader vào webpack diễn ra theo 2 bước:
 
 Bước 1: Tải loader đó về máy theo lệnh `npm install –save-dev <tên_loader>` . Cờ lệnh `–save-dev` giúp lưu các module được tải về dưới dạng các dependencies trong file `package.json` một cách tự động. 
+
 Bước 2: Thực hiện cấu hình trong file `webpack.config.js`
 Lưu ý: các loader được thực thi theo thứ  tự trừ phải sáng trái trong câu lệnh.
-**Loading Javascript**
+
+**Loading Javascript:**
 Để load được file Javascript, bạn cần một loader có tên là babel-loader. 
 - Cài đặt: `npm install –save-dev babel-core babel-loader babel-preset-es2015`
 	Babel là một trình biên dịch code Javascript. Về cơ bản bạn có thể dùng webpack và babel-loader để giúp chuyển code ES2015 thành 	ES5. Để cài đặt được babel-loader, bạn cần cài babel-core, sau đó là cài babel-preset-es2015 (preset cho toàn bộ pluggin của 		ES2015) để nói cho webpack biết, những preset nào sẽ được sử dụng. 
@@ -167,9 +169,10 @@ Giải thích đoạn code trong file webpack.config.js:
 `query`: danh sách các tùy chọn của bạn. Trong trường hợp này, đó là thông báo bộ preset es2015 sẽ được sử dụng.
 Sau khi đã cài đặt babel và các loader liên quan, giờ thì thử viết một ít code bằng ES6 sau đó thựu hiện biên dịch nó bằng babel loader
 
-b)	Loading CSS
+**Loading CSS:**
 - Cài đặt: `npm install –save-dev css-loader style-loader`
-Để load được file CSS, webpack cần 2 loader:  css-loader và style-loader, css-loader giúp load file CSS và style-loader giúp đưa các định dạng CSS vào trình duyệt. 
+	Để load được file CSS, webpack cần 2 loader:  css-loader và style-loader, css-loader giúp load file CSS và style-loader giúp đưa 	các định dạng CSS vào trình duyệt. 
+
 - Cấu hình trong file `webpack.config.js`
 ```
 module.exports = {
@@ -223,11 +226,11 @@ setTimeout(() => alert(`Hello there from MAIN`), 300);
 Sau đó chuyển sang command-line và gõ lệnh webpack, mở trình duyệt và theo dõi sự thay đổi.
 
 ## Webpack dev server
-Webpack có một server được gọi là `webpack-dev-server`
-Từ command-line bạn có thể cài đặt `webpack-dev-server` thông qua các lệnh sau:
-`npm install –g  webpack-dev-server`
-Khi bạn dùng watch mode của webpack, webpack sẽ tự động compile, tuy nhiên bạn phải tự refresh lại trình duyệt của mình để hiển thị kết quả. Còn với `webpack-dev-server`, tất cả mọi thứ sẽ được diễn ra một cách tự động, nghĩa là bạn không cần phải refresh trình duyệt nữa. Trình duyệt sẽ hiển thị những thay đổi nếu bạn thay đổi những thứ liên quan đến hiển thị.
-Mở command-line lên và chạy lệnh `webpack-dev-server`. Sau đó đi đến trình duyệt và mở: http://localhost:8080/webpack-dev-server/.
+    Webpack có một server được gọi là `webpack-dev-server`
+	Từ command-line bạn có thể cài đặt `webpack-dev-server` thông qua các lệnh sau:
+	`npm install –g  webpack-dev-server`
+	Khi bạn dùng watch mode của webpack, webpack sẽ tự động compile, tuy nhiên bạn phải tự refresh lại trình duyệt của mình để hiển 	thị kết quả. Còn với `webpack-dev-server`, tất cả mọi thứ sẽ được diễn ra một cách tự động, nghĩa là bạn không cần phải refresh 	trình duyệt nữa. Trình duyệt sẽ hiển thị những thay đổi nếu bạn thay đổi những thứ liên quan đến hiển thị.
+	Mở command-line lên và chạy lệnh `webpack-dev-server`. Sau đó đi đến trình duyệt và mở: http://localhost:8080/webpack-dev-		server/.
 
 _style.css_
 Vào file style.css của bạn đổi như sau:
