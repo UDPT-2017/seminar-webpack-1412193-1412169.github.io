@@ -48,8 +48,7 @@ Bên cạnh những lợi ích trên, thì còn nhiều lợi ích khác mà khi
 
   + _index.html_
     - Chúng ta cần một view để xem những gì chúng ta làm bên dưới. Bạn thêm vào file index.html của mình các dòng lệnh sau:
-```
-<!DOCTYPE html>
+```<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
