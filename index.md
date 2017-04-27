@@ -3,6 +3,13 @@
 + Webpack là một module bundler để quản lí code front-end của bạn (bao gồm HTML, CSS, JS,..). Webpack đơn giản hóa các workflow 	 bằng việc xây dựng một cách nhanh chóng một đồ thị tham chiếu (dependency graph) trong ứng dụng của bạn và sắp xếp nó một các   	 chính xác.
 	
 ## b)Tại sao phải sử dụng webpakck
+Có rất nhiều lợi ích khi bạn sử dụng webpack:
+  -	Webpack giúp  bạn dễ dàng chia tách code của bạn thành nhiều phần cũng như là gộp chúng lại, điều này giúp bạn dễ quản lí  chúng hơn.
+  -	Khả năng tích hợp 3rd-party library như module, giúp bạn load những thứ bạn muốn khi bạn thật sự cần chúng.
+  -	Giúp biên dịch các loại file khác nhau thành file .js.
+  -	Có webpack-dev-server để chạy các gói bundle ngay lập tức.
+  -	Phù hợp với các dự án lớn về web.
+Bên cạnh những lợi ích trên, thì còn nhiều lợi ích khác mà khi sử dụng bạn sẽ cảm nhận rõ hơn về chúng. 
 
 
 # 2) Cài đặt
@@ -20,7 +27,7 @@
 # 3) Sử dụng
 ## a) Webpack khi không có file config:
   Tạo một folder có cấu trúc như sau:
-	
+  --- webpack-without-file-config (hello.js, main.js, index.js)
   + _hello.js_
      - Thêm dòng lệnh sau vào file hello.js của bạn: 
      - `setTimeout(()=> alert("Hello there from HELLO.js"),3000);`
@@ -52,6 +59,7 @@ Sau đó mở trình duyệt của bạn lên và kiểm tra. Hai text box sẽ 
 
 ##  Webpack khi có file config:
    - Tạo một folder có cấu trúc như sau (có thêm file webpack.config.js và file style.css)
+   ---webpack-with-file-config (webpack.config.js, hello.js, main.js, index.html, style.css)
 **Tác dụng của file webpack.config.js:**
 Như đã nói ở trên, file webpack.config.js giúp chúng ta dễ dàng quản lí các module, pluggin,… mà không phải gõ lại những lệnh quá dài dòng trên command-line, đồng thời có một số chế độ giúp tự compile và cập nhật lại các file khi có thay đổi.
 **Cấu trúc của một file webpack.config.js:**
@@ -70,7 +78,7 @@ Tiếp đến chúng ta thực hiện lệnh trên command-line, thay vì liệt
 ## Watch mode
 Để tiện hơn, webpack cung cấp cho chúng ta một chế độ, giúp tự động compile lại khi chúng ta thực hiện các thay  đổi. Có 2 cách để bạn làm điều này:
 Cách 1: chạy lệnh `webpack –watch` hoặc lệnh `webpack –w` trên command-line, bạn chạy lênh này càng sớm càng tốt, bạn sẽ đỡ tốn công gõ đi gõ lại lệnh webpack nhiều lần.
-Cách 2: cấu hình trong file webpack.config.js, bật watch lên thành true.
+Cách 2: cấu hình trong file webpack.config.js, bật `watch` lên thành `true`.
 `module.exports = {
     entry: './main.js',
     output: {
@@ -78,7 +86,7 @@ Cách 2: cấu hình trong file webpack.config.js, bật watch lên thành true.
     },
     watch: true,
   }`
-Bây giờ, bạn chỉ cần gõ lệnh `webpack` một lần duy nhất, cho tới khi bạn nhấn Ctr+C để thoát thì webpack sẽ tự compile mỗi lần bạn thực hiện thay đổi trên các file liên quan.
+Bây giờ, bạn chỉ cần gõ lệnh `webpack` một lần duy nhất, cho tới khi bạn nhấn `Ctr+C` để thoát thì webpack sẽ tự compile mỗi lần bạn thực hiện thay đổi trên các file liên quan.
 
 ## Tối ưu hóa kết quả đầu ra
 Webpack cung cấp một chế độ giúp tối ưu hóa code đầu ra của bạn. Nó sẽ xóa bỏ các khoảng trắng, dấu xuống dòng, các lệnh comment trên code,… để giúp file đầu ra nhẹ hơn.
@@ -94,7 +102,7 @@ Bước 2: Thực hiện cấu hình trong file webpack.config.js
 Lưu ý: các loader được thực thi theo thứ  tự trừ phải sáng trái trong câu lệnh.
 **Loading Javascript**
 Để load được file Javascript, bạn cần một loader có tên là babel-loader. 
-- Cài đặt: npm install –save-dev babel-core babel-loader babel-preset-es2015
+- Cài đặt: `npm install –save-dev babel-core babel-loader babel-preset-es2015`
 Babel là một trình biên dịch code Javascript. Về cơ bản bạn có thể dùng webpack và babel-loader để giúp chuyển code ES2015 thành ES5. Để cài đặt được babel-loader, bạn cần cài babel-core, sau đó là cài babel-preset-es2015 (preset cho toàn bộ pluggin của ES2015) để nói cho webpack biết, những preset nào sẽ được sử dụng. 
 - Thực hiện cấu hình trong file webpack.config.js
 
