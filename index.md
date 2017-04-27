@@ -254,6 +254,7 @@ Giờ thì xem trên trình duyệt của bạn, dòng chữ sẽ chuyển sang 
 Phần cấu hình mở rộng được hỗ trợ cho tool webpack, hỗ trợ và bổ sung việc ánh xạ code mà các bạn vừa tạo ra ghép thành trang hoành chỉnh. Một số Plugin tiêu biểu: 
 + HTML webpack plugin 
 + Extract text wepack plugin 
+
 **HTML webpack pluggin**
 HTML webpack plugin dùng để làm gì? Mục đích của module này dùng để generate ra một file cuối của bạn mà file đó được xác định bằng cách cài đặt cấu hình. Nói cách đơn giản là nó generate ra 1 file trong bao gồm phần layout(chúng ta định nghĩa) và tích hợp sẵn thêm file .js mà webpack tạo ra HTML webpack plugin hỗ trợ việc truyền qua lại theo định dạng cú pháp (EJS).
 + Cài đặt: `npm install --save-dev html-webpack-pluggin`
@@ -267,8 +268,9 @@ new HtmlWebpackPluggin({
 })
 ```
 **Extract text wepack plugin**
+
 Extract text webpack plugin dùng để làm gì? Nó giúp ách JS thành 2 phần JS riêng và CSS.
-+ Cài đặt:
++ Cài đặt: `npm install --save-dev extract-tex-webpack-pluggin`
 ```
 new ExtractTextPluggin({
 	filename: "bundle.css",
@@ -277,6 +279,7 @@ new ExtractTextPluggin({
 })
 ```
 **Webpack for NodeJS**
+
 Tạo file `index.js` là file chứa cấu hình webpack. 
 Khai báo webpack: `var webpack = require("webpack");`
 Cách cấu hình webpack
