@@ -64,9 +64,12 @@ Bên cạnh những lợi ích trên, thì còn nhiều lợi ích khác mà khi
 ```
    - Ở dòng thứ 6 của đoạn code trên, trong thẻ `<script>` bạn thấy có một lời gọi đến file `bundle.js`. Vậy file này ở đâu ra? Mở             command-line của bạn lên (bạn cần nhớ là đứng ở thư mục gốc chứa các file này) và gõ lệnh: 
      `webpack main.js bundle.js`
-   - Quay lại trường hợp bạn không thực hiện require file `hello.js` trong file `main.js` thì bạn có thể thực hiện theo lệnh `webpack 	       hello.js main.js bundle.js`, kết quả sẽ không thay đổi.
-   - Nếu bạn có nhiều hơn một file `hello.js`, ví dụ như `hello1.js`, `hello2.js`, `hello3.js`,… bạn có thể require chúng trong file         `main.js`rồi thực hiện chạy lệnh command-line thứ nhất hoặc liệt kê chúng như lệnh command-line thứ hai.
-   - Sau khi thực hiện lệnh trên command-line. Nó sẽ trả về cho bạn một số thứ trông gần giống như thế này.
+     
+Quay lại trường hợp bạn không thực hiện require file `hello.js` trong file `main.js` thì bạn có thể thực hiện theo lệnh `webpack 	  hello.js main.js bundle.js`, kết quả sẽ không thay đổi.
+ 
+Nếu bạn có nhiều hơn một file `hello.js`, ví dụ như `hello1.js`, `hello2.js`, `hello3.js`,… bạn có thể require chúng trong file         `main.js`rồi thực hiện chạy lệnh command-line thứ nhất hoặc liệt kê chúng như lệnh command-line thứ hai.
+
+Sau khi thực hiện lệnh trên command-line. Nó sẽ trả về cho bạn một số thứ trông gần giống như thế này.
     
 
 Sau đó, kiểm tra trong thư mục `webpack-without-file-config`, một file có tên `bundle.js` sẽ được tạo ra, mở file này lên kiểm tra, bạn sẽ thấy có một số đoạn code khác bao quanh code ban đầu của bạn và bạn sẽ có cảm giác giống như hai file `main.js` và `hello.js` được nhập lại thành một file.
@@ -75,13 +78,14 @@ Sau đó mở trình duyệt của bạn lên và kiểm tra. Hai text box sẽ 
 
 Đây là cách sử dụng webpack khi không sử dụng file `webpack.config.js`. Tuy nhiên chúng có một số bất tiện. Thứ nhất, mỗi lần có một sự thay đổi nào, dù là nhỏ nhất, bạn cũng phải chạy lại lệnh trên command-line. Thứ hai, việc này sẽ trở nên cực kì phức tạp khi bạn tích hợp các module khác của JS hay CSS,… do đó chúng ta cần một cách dùng khác giúp giải quyết vấn đề này, đó là dùng file `webpack.config.js` để giúp ta chạy các lệnh đơn giản hơn. 
 
-##  Webpack khi có file config:
+##  b) Webpack khi có file config:
    Tạo một folder `webpack-with-file-config` gồm các file sau (webpack.config.js, hello.js, main.js, index.html, style.css) (có thêm 	    file webpack.config.js và file style.css)
     
 **Tác dụng của file webpack.config.js:** 
-   Như đã nói ở trên, file `webpack.config.js` giúp chúng ta dễ dàng quản lí các module, pluggin,… mà không phải gõ lại những lệnh quá      dài dòng trên command-line, đồng thời có một số chế độ giúp tự compile và cập nhật lại các file khi có thay đổi.
+Như đã nói ở trên, file `webpack.config.js` giúp chúng ta dễ dàng quản lí các module, pluggin,… mà không phải gõ lại những lệnh quá      dài dòng trên command-line, đồng thời có một số chế độ giúp tự compile và cập nhật lại các file khi có thay đổi.
+
 ** Cấu trúc của một file webpack.config.js:**
-   Trước khi tạo file cấu hình, bạn cần hiểu rằng, tùy chọn dòng lệnh của wepack lấy theo hai tham số:
+Trước khi tạo file cấu hình, bạn cần hiểu rằng, tùy chọn dòng lệnh của wepack lấy theo hai tham số:
 	+ `entry` được hiểu là đầu vào.
 	+ `output`: được hiểu là đầu ra.
 ```
@@ -92,12 +96,14 @@ module.exports = {
     }
   }
   ```
-Vì bạn cài đặt webpack bằng lệnh trên command-line nên câu lệnh ở đây để thực hiện khai báo các cấu hình bên trong là `module.exports`. Trong ví dụ trên, file entry là `main.js` và sẽ cho ra một file output là `bundle.js` ở cùng thư mục. Bạn có thể tùy chỉnh thư mục lưu trữ bằng các tùy chọn khác như tùy chỉnh `output.path` và rất nhiều tùy chọn khác ở trang này: [https://webpack.github.io/docs/configuration.html]
+- Vì bạn cài đặt webpack bằng lệnh trên command-line nên câu lệnh ở đây để thực hiện khai báo các cấu hình bên trong là `module.exports`. Trong ví dụ trên, file entry là `main.js` và sẽ cho ra một file output là `bundle.js` ở cùng thư mục. Bạn có thể tùy chỉnh thư mục lưu trữ bằng các tùy chọn khác như tùy chỉnh `output.path` và rất nhiều tùy chọn khác ở trang này: [https://webpack.github.io/docs/configuration.html]
+
 Tiếp đến chúng ta thực hiện lệnh trên command-line, thay vì liệt kê các file như câu lệnh phía trên, bây giờ chỉ cần gõ `webpack` thì chúng ta sẽ có kết quả tương  tự. 
 
-## Watch mode
+## c) Watch mode
 Để tiện hơn, webpack cung cấp cho chúng ta một chế độ, giúp tự động compile lại khi chúng ta thực hiện các thay  đổi. Có 2 cách để bạn làm điều này:
 * Cách 1: chạy lệnh `webpack –watch` hoặc lệnh `webpack –w` trên command-line, bạn chạy lênh này càng sớm càng tốt, bạn sẽ đỡ tốn công gõ đi gõ lại lệnh webpack nhiều lần.
+
 * Cách 2: cấu hình trong file webpack.config.js, bật `watch` lên thành `true`.
 ```
 module.exports = {
@@ -110,12 +116,12 @@ module.exports = {
   ```
 Bây giờ, bạn chỉ cần gõ lệnh `webpack` một lần duy nhất, cho tới khi bạn nhấn `Ctr+C` để thoát thì webpack sẽ tự compile mỗi lần bạn thực hiện thay đổi trên các file liên quan.
 
-## Tối ưu hóa kết quả đầu ra
+## d)Tối ưu hóa kết quả đầu ra
 Webpack cung cấp một chế độ giúp tối ưu hóa code đầu ra của bạn. Nó sẽ xóa bỏ các khoảng trắng, dấu xuống dòng, các lệnh comment trên code,… để giúp file đầu ra nhẹ hơn.
 Bạn có thể thực hiện bằng lệnh `webpack –p` trên command-line.
 
 ## Loader
-  - Đây được xem là phần rất quan trọng. 
+Đây được xem là phần rất quan trọng. 
 
 Vì webpack chỉ hiểu các file .js nên để có thể làm việc được với các file như .html hay .css chúng ta cần phải cài một số loader. Các loader này sẽ dạy cho webpack cách làm việc với các file không phải là file .js. 
 
