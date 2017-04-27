@@ -70,6 +70,7 @@ Quay lại trường hợp bạn không thực hiện require file `hello.js` tr
 Nếu bạn có nhiều hơn một file `hello.js`, ví dụ như `hello1.js`, `hello2.js`, `hello3.js`,… bạn có thể require chúng trong file         `main.js`rồi thực hiện chạy lệnh command-line thứ nhất hoặc liệt kê chúng như lệnh command-line thứ hai.
 
 Sau khi thực hiện lệnh trên command-line. Nó sẽ trả về cho bạn một số thứ trông gần giống như thế này.
+# Thêm hình ảnh vào
     
 Sau đó, kiểm tra trong thư mục `webpack-without-file-config`, một file có tên `bundle.js` sẽ được tạo ra, mở file này lên kiểm tra, bạn sẽ thấy có một số đoạn code khác bao quanh code ban đầu của bạn và bạn sẽ có cảm giác giống như hai file `main.js` và `hello.js` được nhập lại thành một file.
 
@@ -139,7 +140,7 @@ _Lưu ý:_ các loader được thực thi theo thứ  tự trừ phải sáng t
 Để load được file Javascript, bạn cần một loader có tên là babel-loader. 
 - Cài đặt: `npm install –save-dev babel-core babel-loader babel-preset-es2015`
 
-Babel là một trình biên dịch code Javascript. Về cơ bản bạn có thể dùng webpack và babel-loader để giúp chuyển code ES2015 thành 	ES5. Để cài đặt được babel-loader, bạn cần cài babel-core, sau đó là cài babel-preset-es2015 (preset cho toàn bộ pluggin của 		ES2015) để nói cho webpack biết, những preset nào sẽ được sử dụng. 
+Babel là một trình biên dịch code Javascript. Về cơ bản bạn có thể dùng webpack và `babel-loader` để giúp chuyển code ES2015 thành 	ES5. Để cài đặt được `babel-loader`, bạn cần cài `babel-core`, sau đó là cài `babel-preset-es2015` (preset cho toàn bộ pluggin của ES2015) để nói cho webpack biết, những preset nào sẽ được sử dụng. 
 
 - Thực hiện cấu hình trong file `webpack.config.js`
 
@@ -176,7 +177,7 @@ Sau khi đã cài đặt babel và các loader liên quan, giờ thì thử vi�
 **Loading CSS:**
 - Cài đặt: `npm install –save-dev css-loader style-loader`
 
-Để load được file CSS, webpack cần 2 loader:  css-loader và style-loader, css-loader giúp load file CSS và style-loader giúp đưa 	các định dạng CSS vào trình duyệt. 
+Để load được file CSS, webpack cần 2 loader:  `css-loader` và `style-loader`, `css-loader` giúp load file CSS và `style-loader` giúp đưa 	các định dạng CSS vào trình duyệt. 
 
 - Cấu hình trong file `webpack.config.js`
 ```
@@ -234,14 +235,13 @@ Sau đó chuyển sang command-line và gõ lệnh `webpack`, mở trình duyệ
 ## Webpack dev server
 Webpack có một server được gọi là `webpack-dev-server`
 
-Từ command-line bạn có thể cài đặt `webpack-dev-server` thông qua các lệnh sau: `npm install –g  webpack-dev-server`
+Từ command-line bạn có thể cài đặt `webpack-dev-server` thông qua lệnh sau: `npm install –g  webpack-dev-server`
 
-Khi bạn dùng watch mode của webpack, webpack sẽ tự động compile, tuy nhiên bạn phải tự refresh lại trình duyệt của mình để hiển 	thị kết quả. Còn với `webpack-dev-server`, tất cả mọi thứ sẽ được diễn ra một cách tự động, nghĩa là bạn không cần phải refresh 	trình duyệt nữa. Trình duyệt sẽ hiển thị những thay đổi nếu bạn thay đổi những thứ liên quan đến hiển thị.
+Khi bạn dùng watch-mode của webpack, webpack sẽ tự động compile, tuy nhiên bạn phải tự refresh lại trình duyệt của mình để hiển 	thị kết quả. Còn với `webpack-dev-server`, tất cả mọi thứ sẽ được diễn ra một cách tự động, nghĩa là bạn không cần phải refresh 	trình duyệt nữa. Trình duyệt sẽ hiển thị những thay đổi nếu bạn thay đổi những thứ liên quan đến hiển thị.
 
 Mở command-line lên và chạy lệnh `webpack-dev-server`. Sau đó đi đến trình duyệt và mở: http://localhost:8080/webpack-dev-		server/. Hiển nhiên bạn cũng có thể cấu hình để webpack-dev-server có thể mở trên port khác.
 
 + _style.css_
-
 Vào file style.css của bạn đổi như sau:
 ```
 h1 {
@@ -252,38 +252,10 @@ Giờ thì xem trên trình duyệt của bạn, dòng chữ sẽ chuyển sang 
 
 ## Pluggin
 
+# Tài liệu tham khảo:
+https://webpack.github.io/docs/configuration.html
+https://scotch.io/tutorials/getting-started-with-webpack-module-bundling-magic
+https://medium.com/@dabit3/beginner-s-guide-to-webpack-b1f1a3638460
+https://webpack.github.io/docs/what-is-webpack.html
 
 
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-      
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/UDPT-2017/seminar-webpack-1412193-1412169.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
