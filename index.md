@@ -1,6 +1,6 @@
 # 1) Giới thiệu webpack
 ## a)Wepback là gì?
-+ Webpack là một module bundler để quản lí code front-end của bạn (bao gồm HTML, CSS, JS,..). Webpack đơn giản hóa các workflow 	 bằng việc xây dựng một cách nhanh chóng một đồ thị tham chiếu (dependency graph) trong ứng dụng của bạn và sắp xếp nó một các   	 chính xác.
+Webpack là một module bundler để quản lí code front-end của bạn (bao gồm HTML, CSS, JS,..). Webpack đơn giản hóa các workflow 	 bằng việc xây dựng một cách nhanh chóng một đồ thị tham chiếu (dependency graph) trong ứng dụng của bạn và sắp xếp nó một các   	 chính xác.
 	
 ## b)Tại sao phải sử dụng webpakck
 Có rất nhiều lợi ích khi bạn sử dụng webpack:
@@ -30,13 +30,13 @@ Bên cạnh những lợi ích trên, thì còn nhiều lợi ích khác mà khi
   --- webpack-without-file-config (hello.js, main.js, index.js)
   + _hello.js_
      - Thêm dòng lệnh sau vào file hello.js của bạn: 
-    setTimeout(()=> alert("Hello there from HELLO.js"),3000);
+    `setTimeout(()=> alert("Hello there from HELLO.js"),3000);`
      -  Dòng lệnh trên có tác dụng hiện một text box có dòng chữ “Hello there from HELLO.js” trên trình duyệt sau của bạn sau 3 giây.
 
   + _main.js_
     - Thêm 2 dòng lệnh sau vào file main.js của bạn:
-    var sub = require('./hello.js');
-    setTimeout(()=> alert("Hello there from MAIN.js"),300);
+    `var sub = require('./hello.js');`
+    `setTimeout(()=> alert("Hello there from MAIN.js"),300);`
     - Dòng đầu tiên sẽ gọi đến file hello.js và dòng thứ hai sẽ có tác dụng hiện một text box có dòng chữ “Hello there from MAIN.js” 	  	trên trình duyệt của bạn sau 0.3 giây. 
     - Về cơ bản, bạn không thể gọi một file .js này từ một file .js khác, tuy nhiên webpack cho phép bạn làm điều này. Điều này giúp 	       bạn có thể tùy biến gọi đến nhiều file .js khác phục vụ nhu cầu chức năng mà không phải là gom tất cả các file .js kể cả các 	       file .js không cần thiết vào. Điều này cũng giúp bạn dễ dàng quản lí các file .js nếu bạn muốn gom chúng lại. 
     - Tuy nhiên, nếu không thực hiện require thì vẫn có cách khác để bạn gộp các file .js này thành một. Cách này sẽ được hướng dẫn 	 	bên dưới.
@@ -58,11 +58,10 @@ Sau đó mở trình duyệt của bạn lên và kiểm tra. Hai text box sẽ 
 ##  Webpack khi có file config:
    - Tạo một folder có cấu trúc như sau (có thêm file webpack.config.js và file style.css)
    ---webpack-with-file-config (webpack.config.js, hello.js, main.js, index.html, style.css)
-**Tác dụng của file webpack.config.js:**
-Như đã nói ở trên, file `webpack.config.js` giúp chúng ta dễ dàng quản lí các module, pluggin,… mà không phải gõ lại những lệnh quá dài dòng trên command-line, đồng thời có một số chế độ giúp tự compile và cập nhật lại các file khi có thay đổi.
-**Cấu trúc của một file webpack.config.js:**
+* Tác dụng của file webpack.config.js: Như đã nói ở trên, file `webpack.config.js` giúp chúng ta dễ dàng quản lí các module, pluggin,… mà không phải gõ lại những lệnh quá dài dòng trên command-line, đồng thời có một số chế độ giúp tự compile và cập nhật lại các file khi có thay đổi.
+* Cấu trúc của một file webpack.config.js:*
 Trước khi tạo file cấu hình, bạn cần hiểu rằng, tùy chọn dòng lệnh của wepack lấy theo hai tham số:
-	+ `entry`: được hiểu là đầu vào.
+	+ `entry` được hiểu là đầu vào.
 	+ `output`: được hiểu là đầu ra.
 `module.exports = {
     entry: './main.js',
